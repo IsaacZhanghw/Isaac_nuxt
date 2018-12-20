@@ -1,6 +1,6 @@
 # lemonNuxt
 
-> My wonderful Nuxt.js project
+> Isaac_Nuxt
 
 ## Build Setup
 
