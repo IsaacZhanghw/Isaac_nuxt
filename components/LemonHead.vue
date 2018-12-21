@@ -5,7 +5,8 @@
       <nuxt-link v-for="(item,index) in linkList" :key="index" class="click-hover router-link-active" :to="item.link == 'index' ? '/' : '/' + item.link">
         <div class="link-title" @mouseover='headOver(index)' @mouseout='headOut(index)'>
           <img :src="item.image" class="head-item head-item-huge">
-          <b :class="item.activeBorder ? 'link-border' : ''"></b>
+          <!-- <b :class="item.activeBorder ? 'link-border' : ''"></b> -->
+          <!-- <b :class="item.border ? 'link-border' : ''"></b> -->
         </div>
       </nuxt-link>
     </div>
@@ -53,9 +54,7 @@ export default {
       }
     })
   },
-  computed: {
-
-  },
+  computed: {},
   methods: {
     // 导航跳转
     goLink: function(link) {
@@ -71,13 +70,14 @@ export default {
           this.linkList[index].border = true
         }
       })
+      console.log('this.linkList', this.linkList)
     },
     // 鼠标移出所有边框置否
     headOut: function(index) {
       this.linkList.forEach(item => {
         item.border = false
       })
-    },
+    }
   }
 }
 </script>
@@ -89,6 +89,7 @@ export default {
   top: 0;
   left: 0;
   z-index: 10;
+  background-color: rgba(156, 8, 250, 0.5);
 }
 
 .head-box {
@@ -97,15 +98,15 @@ export default {
   display: flex;
   justify-content: flex-end;
   .head-item {
-    height: 50px;
-    line-height: 50px;
+    height: 30px;
+    line-height: 30px;
     cursor: pointer;
     position: relative;
     z-index: 3;
   }
 
   .link-title {
-    padding: 0 20px;
+    padding: 10px 20px;
     position: relative;
     z-index: 4;
   }

@@ -1,6 +1,6 @@
 <!-- 首页 -->
 <template>
-  <div class="index-bg">
+  <div>
     <lemon-head />
     <div v-swiper:studentSwiper="studentswiperOption">
       <div class="swiper-wrapper" :style="{width: clientWidth + 'px', height: clientHeight + 'px'}">
@@ -8,6 +8,11 @@
           <img :src="item" class="swiper-item" />
         </div>
       </div>
+    </div>
+    <div class="index-box">
+      <p>首页</p>
+      <p>关于</p>
+      <p>友链</p>
     </div>
     <!-- <lemon-foot /> -->
   </div>
@@ -26,6 +31,8 @@ import isaac07 from '~/static/isaac07.jpg'
 import isaac08 from '~/static/isaac08.jpg'
 import isaac09 from '~/static/isaac09.jpg'
 import isaac10 from '~/static/isaac10.jpg'
+import isaac11 from '~/static/isaac11.jpg'
+import isaac12 from '~/static/isaac12.jpg'
 export default {
   name: 'index',
   components: {
@@ -46,7 +53,9 @@ export default {
         isaac07,
         isaac08,
         isaac09,
-        isaac10
+        isaac10,
+        isaac11,
+        isaac12,
       ],
       studentswiperOption: {
         speed: 1000,
@@ -88,5 +97,18 @@ export default {
 }
 .swiper-item {
   object-fit: cover;
+}
+.index-box{
+  // width: 300px;
+  // height: 300px;
+  // background-color: rgba(156, 8, 250, 0.5);
+  padding: 20px 100px;
+  background-color: rgba(250, 250, 250, 0.5);
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
 }
 </style>
