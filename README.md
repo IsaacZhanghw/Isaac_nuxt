@@ -1,4 +1,4 @@
-# lemonNuxt
+# Isaac_Nuxt IsaacZhanghw_blog
 
 > Isaac_Nuxt
 
