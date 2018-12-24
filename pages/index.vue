@@ -10,9 +10,9 @@
       </div>
     </div>
     <div class="index-box">
-      <p>首页</p>
-      <p>关于</p>
-      <p>友链</p>
+      <p>-One day you love them</p>
+      <p>and the next day</p>
+      <p>you want to kill them a thousand times over</p>
     </div>
     <!-- <lemon-foot /> -->
   </div>
@@ -28,11 +28,6 @@ import isaac04 from '~/static/isaac04.jpg'
 import isaac05 from '~/static/isaac05.jpg'
 import isaac06 from '~/static/isaac06.jpg'
 import isaac07 from '~/static/isaac07.jpg'
-import isaac08 from '~/static/isaac08.jpg'
-import isaac09 from '~/static/isaac09.jpg'
-import isaac10 from '~/static/isaac10.jpg'
-import isaac11 from '~/static/isaac11.jpg'
-import isaac12 from '~/static/isaac12.jpg'
 export default {
   name: 'index',
   components: {
@@ -50,21 +45,16 @@ export default {
         isaac04,
         isaac05,
         isaac06,
-        isaac07,
-        isaac08,
-        isaac09,
-        isaac10,
-        isaac11,
-        isaac12,
+        isaac07
       ],
       studentswiperOption: {
         speed: 1000,
         loop: true,
         autoHeight: true,
         grabCursor: true,
-        effect : 'fade',
+        effect: 'fade',
         autoplay: {
-          delay: 2500,
+          delay: 3000,
           disableOnInteraction: false
         }
       }
@@ -98,17 +88,26 @@ export default {
 .swiper-item {
   object-fit: cover;
 }
-.index-box{
-  // width: 300px;
-  // height: 300px;
-  // background-color: rgba(156, 8, 250, 0.5);
-  padding: 20px 100px;
-  background-color: rgba(250, 250, 250, 0.5);
-  border-radius: 20px;
+.index-box {
+  width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 100;
+  p {
+    width: 80%;
+    text-align: right;
+    font-size: 2.5rem;
+    line-height: 40px;
+    color: #fff;
+  }
+}
+.music-box {
+  opacity: 0.5;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   z-index: 100;
 }
 </style>

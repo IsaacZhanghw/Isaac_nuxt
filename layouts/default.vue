@@ -1,7 +1,43 @@
 <template>
-  <nuxt />
+  <div class="nuxt-box" @click='canvasClick'>
+    <!-- <lemon-head></lemon-head> -->
+    <nuxt />
+    <canvas-boom v-if="isCanvas" class="canvas-boom" :style="{top: eventOffsetY + 'px', left: eventOffsetX + 'px'}"></canvas-boom>
+    <!-- <lemon-foot></lemon-foot> -->
+  </div>
 </template>
+<script>
+import LemonHead from '@/components/LemonHead'
+import LemonFoot from '@/components/LemonFoot'
+import canvasBoom from '@/components/canvasBoom'
 
+export default {
+  name: 'smart',
+  components: {
+    LemonHead,
+    LemonFoot,
+    canvasBoom
+  },
+  data() {
+    return {
+      isCanvas: false,
+      eventOffsetX: 0,
+      eventOffsetY: 0,
+    }
+  },
+  methods: {
+    canvasClick(event) {
+      this.eventOffsetX = event.pageX
+      this.eventOffsetY = event.pageY
+      this.isCanvas = true
+      setTimeout(() => {
+        this.isCanvas = false
+      }, 500)
+    }
+  },
+  watch: {}
+}
+</script>
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -49,5 +85,10 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+.canvas-boom {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 }
 </style>

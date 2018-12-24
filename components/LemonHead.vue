@@ -2,44 +2,35 @@
 <template>
   <div class="layout">
     <div class="head-box">
-      <nuxt-link v-for="(item,index) in linkList" :key="index" class="click-hover router-link-active" :to="item.link == 'index' ? '/' : '/' + item.link">
-        <div class="link-title" @mouseover='headOver(index)' @mouseout='headOut(index)'>
-          <img :src="item.image" class="head-item head-item-huge">
-          <!-- <b :class="item.activeBorder ? 'link-border' : ''"></b> -->
-          <!-- <b :class="item.border ? 'link-border' : ''"></b> -->
-        </div>
-      </nuxt-link>
+      <router-link class="left" :to="{path: '/'}">
+        <img src="~/static/Banana.png" class="head-item" alt="">
+      </router-link>
+      <ul class="head-huge">
+        <li v-for="(item,index) in linkList" :key="index" class="head-item click-hover right" @click="goLink(item.link)" @mouseover='headOver(index)' @mouseout='headOut(index)'>
+          <div class="link-title">
+            {{item.title}}
+            <b v-if="item.activeBorder" class="link-border"></b>
+            <transition name="fade">
+              <b v-if="item.border" class="link-border"></b>
+            </transition>
+          </div>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
     </div>
   </div>
 </template>
 <script>
-import home from '../static/home.png'
-import about from '../static/about.png'
-import link from '../static/link.png'
 export default {
   name: 'LemonHead',
   data() {
     return {
       showModal: false,
       linkList: [
-        {
-          link: 'index',
-          activeBorder: false,
-          border: false,
-          image: home
-        },
-        {
-          link: 'about',
-          activeBorder: false,
-          border: false,
-          image: about
-        },
-        {
-          link: 'link',
-          activeBorder: false,
-          border: false,
-          image: link
-        }
+        { link: 'link', title: '友链', activeBorder: false, border: false },
+        { link: 'about', title: '关于', activeBorder: false, border: false },
+        { link: 'blog', title: '文章', activeBorder: false, border: false },
+        { link: 'index', title: '首页', activeBorder: false, border: false }
       ]
     }
   },
@@ -58,11 +49,18 @@ export default {
   methods: {
     // 导航跳转
     goLink: function(link) {
-      this.$nuxt.push({ path: link })
+      this.$router.push({ path: link })
+      this.linkList.forEach(item => {
+        // 所有激活边框置否
+        item.activeBorder = false
+        console.log('this.$nuxt.$route.name',this.$nuxt.$route.name)
+        if (this.$nuxt.$route.name == item.link) {
+          item.activeBorder = true
+        }
+      })
     },
     // 鼠标移入边框激活
     headOver: function(index) {
-      console.log('index', index)
       this.linkList.forEach(item => {
         if (this.linkList[index].activeBorder) {
           return
@@ -70,11 +68,33 @@ export default {
           this.linkList[index].border = true
         }
       })
-      console.log('this.linkList', this.linkList)
     },
     // 鼠标移出所有边框置否
     headOut: function(index) {
       this.linkList.forEach(item => {
+        item.border = false
+      })
+    },
+    // 小屏下模态框打开方法
+    menuModal: function() {
+      this.showModal = true
+    },
+    closeModal() {
+      this.showModal = false
+    },
+    // 小屏下鼠标移入边框激活
+    headOverReverse: function(index) {
+      this.linkListReverse.forEach(item => {
+        if (this.linkListReverse[index].activeBorder) {
+          return
+        } else {
+          this.linkListReverse[index].border = true
+        }
+      })
+    },
+    // 小屏下鼠标移入边框置否
+    headOutReverse: function(index) {
+      this.linkListReverse.forEach(item => {
         item.border = false
       })
     }
@@ -84,59 +104,49 @@ export default {
 <style lang="less" scoped>
 .layout {
   width: 100%;
-  font-size: 0px;
-  position: fixed;
+  background-color: rgba(156, 8, 250, 0.3);
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 10;
-  background-color: rgba(156, 8, 250, 0.5);
 }
-
 .head-box {
   width: 1200px;
   margin: 0 auto;
-  display: flex;
-  justify-content: flex-end;
+
   .head-item {
-    height: 30px;
-    line-height: 30px;
+    color: #5a5a5a;
+    height: 40px;
+    line-height: 40px;
     cursor: pointer;
-    position: relative;
-    z-index: 3;
   }
 
   .link-title {
-    padding: 10px 20px;
+    padding: 0 20px;
+    font-family: 'Noto Sans CJK SC DemiLight', 'Source Han Sans CN DemiLight';
+    color: #fdf5fe;
+    letter-spacing: 2px;
     position: relative;
-    z-index: 4;
-  }
-  .router-link-active {
-    text-decoration: none;
   }
 
   .link-border {
     display: block;
     width: 100%;
-    height: 50%;
-    background-color: #43e9ff;
+    height: 3px;
+    border-bottom: 3px solid #fecc01;
     position: absolute;
-    left: 50%;
     bottom: 0;
-    transform: translate(-50%);
-    z-index: 0;
-    animation: titleFrames 5s forwards;
-  }
-
-  .head-link-item:first-child {
-    .link-title {
-      padding-right: 0;
-    }
+    left: 0;
   }
 }
 
-@keyframes titleFrames {
-  to {
-    height: 100%;
-  }
+.fade-enter-active,
+.fade-leave-active {
+  transition: transform 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  transform: scaleX(0);
 }
 </style>

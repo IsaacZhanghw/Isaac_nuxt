@@ -61,5 +61,40 @@ module.exports = {
     transition: {
         name: 'page',
         mode: 'out-in',
+    },
+    router: {
+        extendRoutes(routes, resolve) {
+            routes.push({
+                path: '/',
+                name: '',
+                component: 'pages/index.vue'
+                    // component: resolve(__dirname, 'pages/index.vue')
+                    // component: resolve => require(['@/pages/index'], resolve)
+            }, {
+                path: '/index',
+                name: 'index',
+                component: 'pages/index.vue'
+                    // component: resolve(__dirname, 'pages/index.vue')
+                    // component: resolve => require(['@/pages/index'], resolve)
+            }, {
+                path: '/blog',
+                name: 'blog',
+                component: 'pages/blog.vue'
+                    // component: resolve(__dirname, 'pages/blog.vue')
+                    // component: resolve => require(['@/pages/blog'], resolve)
+            }, {
+                path: '/about',
+                name: '/about',
+                component: 'pages/about.vue'
+                    // component: resolve(__dirname, 'pages/about.vue')
+                    // component: resolve => require(['@/pages/about'], resolve)
+            }, {
+                path: '/link',
+                name: '/link',
+                component: 'pages/link.vue'
+                    // component: resolve(__dirname, 'pages/link.vue')
+                    // component: resolve => require(['@/pages/link'], resolve)
+            }, )
+        }
     }
 }
