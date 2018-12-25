@@ -2,26 +2,29 @@
 <template>
   <div class="index-bg" @click='canvasClick'>
     <lemon-head></lemon-head>
+    <no-data></no-data>
     <main id="main" class="main-box">
-      <div v-for="(item, index) in blogList" :key="index" class="blo-item">
-        <h2>{{item.title}}</h2>
-      </div>
+      <!-- <div v-for="(item, index) in blogList" :key="index" class="blo-item">
+        <h2 class="blog-title">
+          {{item.title}}
+        </h2>
+        <div v-html="blogDetail"></div>
+      </div> -->
     </main>
-    <!-- <isaac-back></isaac-back> -->
     <lemon-foot></lemon-foot>
   </div>
 </template>
 <script>
 import LemonHead from '@/components/LemonHead'
 import LemonFoot from '@/components/LemonFoot'
-import isaacBack from '@/components/isaacBack'
+import noData from '@/components/noData'
 
 export default {
   name: 'smart',
   components: {
     LemonHead,
     LemonFoot,
-    isaacBack
+    noData
   },
   data() {
     return {
@@ -30,6 +33,16 @@ export default {
       isCanvas: false,
       eventOffsetX: 0,
       eventOffsetY: 0,
+      blogDetail: `<section style='border: 0px none; box-sizing: border-box;'>
+                        <section style='text-align: center;'>
+                            <section style='font-size: 14px; text-align: justify; letter-spacing: 1.5px; line-height: 1.75em; color: #3f3e3f; padding: 1em; box-sizing: border-box;'>
+                                <p style='letter-spacing: 1.5px; line-height: 1.75em;'><span style='font-size: 14px;'>临近年底忙到飞起，偏偏这会儿老板催你交年终总结，毫无头绪、真心崩溃！年终总结年年写，如何算好“年终账”、明晰来年的计划？</span></p>
+                                <p style='letter-spacing: 1.5px; line-height: 1.75em;'><span style='font-size: 14px;'>对多数人来说，年复一年的工作，如果没有太大的变动，撰写年终总结说不上创新深刻，因而也就是“年年总结年年似”。别烦，“套路”在手，总结不愁！</span></p>
+                                <p style='letter-spacing: 1.5px; line-height: 1.75em;'><br></p>
+                            </section>
+                        </section>
+                        <p><br></p>
+                    </section>`,
       blogList: [
         {
           title: 'DARLING in the FRANXX \u535a\u5ba2\u6837\u5f0f',
@@ -146,27 +159,23 @@ export default {
 }
 </script>
 <style lang='less' scoped>
-.background-box {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -100;
-}
-.swiper-item {
-  width: 100%;
-  object-fit: cover;
-}
 .main-box {
   width: 1200px;
   margin: 0 auto;
   padding: 5px 0;
-  background-color: rgba(250, 250, 250, 0.5);
-  padding-top: 40px;
 }
-// .canvas-boom {
-//   position: absolute;
-//   transform: translate(-50%, -50%);
-//   z-index: 10;
-// }
+.blo-item {
+  margin: 30px 0;
+  padding: 20px;
+  text-align: center;
+  color: #4d4d4d;
+  background-color: rgba(250, 250, 250, 1);
+  border-radius: 5px;
+  .blog-title {
+    font-size: 2rem;
+    color: #010101;
+    padding: 0 20px;
+    font-weight: bold;
+  }
+}
 </style>

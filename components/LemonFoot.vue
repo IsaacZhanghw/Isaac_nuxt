@@ -5,7 +5,7 @@
       <P>「 故事，不会有好的结局。」</P>
       <P class="footer-centent">
         Copyright © 2017 ISAAC
-        <img src="~/static/Aubergine.png" class="footer-icon" alt="">
+        <img src="~/static/aubergine.png" class="footer-icon" alt="">
       </P>
     </div>
   </div>

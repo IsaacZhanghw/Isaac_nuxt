@@ -3,7 +3,7 @@
   <div class="layout">
     <div class="head-box">
       <router-link class="left" :to="{path: '/'}">
-        <img src="~/static/Banana.png" class="head-item" alt="">
+        <img src="~/static/banana.png" class="head-item" alt="">
       </router-link>
       <ul class="head-huge">
         <li v-for="(item,index) in linkList" :key="index" class="head-item click-hover right" @click="goLink(item.link)" @mouseover='headOver(index)' @mouseout='headOut(index)'>
@@ -105,7 +105,7 @@ export default {
 .layout {
   width: 100%;
   background-color: rgba(156, 8, 250, 0.3);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
@@ -113,7 +113,7 @@ export default {
 .head-box {
   width: 1200px;
   margin: 0 auto;
-
+  padding: 5px 0;
   .head-item {
     color: #5a5a5a;
     height: 40px;

@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="index-box">
-      <p>-One day you love them</p>
+      <p>One day you love them</p>
       <p>and the next day</p>
       <p>you want to kill them a thousand times over</p>
     </div>
@@ -53,10 +53,10 @@ export default {
         autoHeight: true,
         grabCursor: true,
         effect: 'fade',
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false
-        }
+        // autoplay: {
+        //   delay: 3000,
+        //   disableOnInteraction: false
+        // }
       }
     }
   },
@@ -102,12 +102,5 @@ export default {
     line-height: 40px;
     color: #fff;
   }
-}
-.music-box {
-  opacity: 0.5;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
 }
 </style>

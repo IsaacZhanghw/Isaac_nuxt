@@ -1,9 +1,7 @@
 <template>
   <div class="nuxt-box" @click='canvasClick'>
-    <!-- <lemon-head></lemon-head> -->
     <nuxt />
     <canvas-boom v-if="isCanvas" class="canvas-boom" :style="{top: eventOffsetY + 'px', left: eventOffsetX + 'px'}"></canvas-boom>
-    <!-- <lemon-foot></lemon-foot> -->
   </div>
 </template>
 <script>
@@ -90,5 +88,8 @@ html {
   position: absolute;
   transform: translate(-50%, -50%);
   z-index: 10;
+}
+.nuxt-box{
+background-color: rgba(203, 203, 203, .5);
 }
 </style>
