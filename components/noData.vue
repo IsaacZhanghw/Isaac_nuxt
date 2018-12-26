@@ -3,7 +3,7 @@
   <div class="none-box">
     <div class="none-inline">
       <router-link class="watermelon-icon" :to="{path: '/'}">
-        <img src="~/static/watermelon.png" class="none-icon" alt="">
+        <img src="~/static/images/watermelon.png" class="none-icon" alt="">
       </router-link>
       空的哦,给Isaac催更吧  (〃'▽'〃)
     </div>

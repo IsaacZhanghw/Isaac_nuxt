@@ -11,7 +11,7 @@
     </div>
     <div class="index-box">
       <p>One day you love them</p>
-      <p>and the next day</p>
+      <p>and the next day张洪伍test</p>
       <p>you want to kill them a thousand times over</p>
     </div>
     <!-- <lemon-foot /> -->
@@ -21,13 +21,13 @@
 import LemonHead from '@/components/LemonHead'
 import LemonFoot from '@/components/LemonFoot'
 import axios from 'axios'
-import isaac01 from '~/static/isaac01.jpg'
-import isaac02 from '~/static/isaac02.jpg'
-import isaac03 from '~/static/isaac03.jpg'
-import isaac04 from '~/static/isaac04.jpg'
-import isaac05 from '~/static/isaac05.jpg'
-import isaac06 from '~/static/isaac06.jpg'
-import isaac07 from '~/static/isaac07.jpg'
+import isaac01 from '~/static/images/isaac01.jpg'
+import isaac02 from '~/static/images/isaac02.jpg'
+import isaac03 from '~/static/images/isaac03.jpg'
+import isaac04 from '~/static/images/isaac04.jpg'
+import isaac05 from '~/static/images/isaac05.jpg'
+import isaac06 from '~/static/images/isaac06.jpg'
+import isaac07 from '~/static/images/isaac07.jpg'
 export default {
   name: 'index',
   components: {
@@ -102,5 +102,14 @@ export default {
     line-height: 40px;
     color: #fff;
   }
+}
+@media screen and (max-width: 1200px) {
+.index-box {
+  left: 0;
+  transform: translate(0, -50%);
+  p {
+    width: 100%;
+  }
+}
 }
 </style>

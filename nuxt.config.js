@@ -12,7 +12,7 @@ module.exports = {
             { hid: 'description', name: 'description', content: '柠檬悦读，中小学智能分级阅读解决方案。孩子、家长、老师通过跨屏联动，实现提升阅读能力与高效教学。产品功能全面围绕激发孩子的阅读兴趣、培养阅读习惯、提升阅读能力以及助力老师高效教学而设计。分级阅读体系涵盖：阅读能力测评、自适应学习系统、精选分级书城。' }
         ],
         link: [
-            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+            { rel: 'icon', type: 'image/x-icon', href: '/images/favicon.ico' }
         ]
     },
 
@@ -66,34 +66,24 @@ module.exports = {
         extendRoutes(routes, resolve) {
             routes.push({
                 path: '/',
-                name: '',
+                name: '*',
                 component: 'pages/index.vue'
-                    // component: resolve(__dirname, 'pages/index.vue')
-                    // component: resolve => require(['@/pages/index'], resolve)
             }, {
                 path: '/index',
-                name: 'index',
+                name: '/index',
                 component: 'pages/index.vue'
-                    // component: resolve(__dirname, 'pages/index.vue')
-                    // component: resolve => require(['@/pages/index'], resolve)
             }, {
                 path: '/blog',
-                name: 'blog',
+                name: '/blog',
                 component: 'pages/blog.vue'
-                    // component: resolve(__dirname, 'pages/blog.vue')
-                    // component: resolve => require(['@/pages/blog'], resolve)
             }, {
                 path: '/about',
                 name: '/about',
                 component: 'pages/about.vue'
-                    // component: resolve(__dirname, 'pages/about.vue')
-                    // component: resolve => require(['@/pages/about'], resolve)
             }, {
                 path: '/link',
                 name: '/link',
                 component: 'pages/link.vue'
-                    // component: resolve(__dirname, 'pages/link.vue')
-                    // component: resolve => require(['@/pages/link'], resolve)
             }, )
         }
     }

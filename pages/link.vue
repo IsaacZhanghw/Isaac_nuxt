@@ -94,4 +94,9 @@ export default {
     font-weight: bold;
   }
 }
+@media screen and (max-width: 1200px) {
+  .main-box {
+    width: 100%;
+  }
+}
 </style>

@@ -3,7 +3,7 @@
   <div class="layout">
     <div class="head-box">
       <router-link class="left" :to="{path: '/'}">
-        <img src="~/static/banana.png" class="head-item" alt="">
+        <img src="~/static/images/banana.png" class="head-item" alt="">
       </router-link>
       <ul class="head-huge">
         <li v-for="(item,index) in linkList" :key="index" class="head-item click-hover right" @click="goLink(item.link)" @mouseover='headOver(index)' @mouseout='headOut(index)'>
@@ -53,7 +53,7 @@ export default {
       this.linkList.forEach(item => {
         // 所有激活边框置否
         item.activeBorder = false
-        console.log('this.$nuxt.$route.name',this.$nuxt.$route.name)
+        console.log('this.$nuxt.$route.name', this.$nuxt.$route.name)
         if (this.$nuxt.$route.name == item.link) {
           item.activeBorder = true
         }
@@ -148,5 +148,10 @@ export default {
 .fade-enter,
 .fade-leave-to {
   transform: scaleX(0);
+}
+@media screen and (max-width: 1200px) {
+  .head-box {
+    width: 100%;
+  }
 }
 </style>
