@@ -5,17 +5,17 @@
       <router-link class="left" :to="{path: '/'}">
         <img src="~/static/images/banana.png" class="head-item" alt="">
       </router-link>
-      <ul class="head-huge">
-        <li v-for="(item,index) in linkList" :key="index" class="head-item click-hover right" @click="goLink(item.link)" @mouseover='headOver(index)' @mouseout='headOut(index)'>
-          <div class="link-title">
+      <div class="head-huge">
+        <router-link v-for="(item,index) in linkList" :key="index" class="head-item right router-link-active" :to=" item.link == 'index' ? '/' : '/' + item.link">
+          <div class="link-title" @mouseover='headOver(index)' @mouseout='headOut(index)'>
             {{item.title}}
             <b v-if="item.activeBorder" class="link-border"></b>
             <transition name="fade">
               <b v-if="item.border" class="link-border"></b>
             </transition>
           </div>
-        </li>
-      </ul>
+        </router-link>
+      </div>
       <div class="clearfix"></div>
     </div>
   </div>
@@ -61,6 +61,7 @@ export default {
     },
     // 鼠标移入边框激活
     headOver: function(index) {
+      console.log('index', index)
       this.linkList.forEach(item => {
         if (this.linkList[index].activeBorder) {
           return
@@ -127,6 +128,9 @@ export default {
     color: #fdf5fe;
     letter-spacing: 2px;
     position: relative;
+  }
+  .router-link-active {
+    text-decoration: none;
   }
 
   .link-border {
